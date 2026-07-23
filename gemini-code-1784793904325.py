@@ -4,7 +4,7 @@ import tempfile
 import subprocess
 import whisper
 from docx import Document
-from googletrans import Translator
+from deep_translator import GoogleTranslator
 
 # Configurazione della pagina Streamlit
 st.set_page_config(page_title="Video Subtitler & Transcriber", page_icon="🎬", layout="centered")
@@ -76,8 +76,7 @@ if uploaded_file is not None:
                     doc.add_paragraph(full_text_it)
 
                     # Traduzione Inglese
-                    translator = Translator()
-                    translated_text = translator.translate(full_text_it, src="it", dest="en").text
+                    translated_text = GoogleTranslator(source='auto', target='en').translate(full_text_it)
 
                     doc.add_heading("English Translation", level=2)
                     doc.add_paragraph(translated_text)
