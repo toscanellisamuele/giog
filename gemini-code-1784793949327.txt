@@ -1,4 +1,4 @@
+git+https://github.com/openai/whisper.git
 streamlit
-openai-whisper
 python-docx
 googletrans==4.0.0-rc1
